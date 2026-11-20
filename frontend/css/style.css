@@ -1,0 +1,75 @@
+:root{
+  --tinta:#16302f; --borgona:#a63d2f; --laton:#c8923a; --hueso:#fbfaf7; --blanco:#fff; --azul:#2b5d8a; --gris:#5b6665;
+  --borde:#d9d4c8; --error:#A3141F; --ok:#1E6B3A;
+  --titulo:"Oswald","Arial Narrow",Impact,sans-serif; --texto:"Lato",Verdana,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:4rem}
+body{font-family:var(--texto);color:var(--tinta);background:var(--hueso);line-height:1.6;font-size:1.0625rem}
+h1,h2,h3,.marca{font-family:var(--titulo);line-height:1.15}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--laton);outline-offset:3px}
+.saltar{position:absolute;left:-999px;background:var(--blanco);padding:.5rem 1rem}
+.saltar:focus{left:1rem;top:1rem;z-index:20}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;padding:.75rem 1.25rem;background:var(--tinta);color:var(--blanco)}
+.marca{font-size:1.5rem;font-weight:700;text-decoration:none;letter-spacing:.04em}
+.nav__lista{display:flex;gap:1.5rem;list-style:none;padding:0}
+.nav__lista a{text-decoration:none;padding:.4rem 0;border-bottom:2px solid transparent}
+.nav__lista a:hover{border-color:var(--laton)}
+.nav__boton{display:none;background:none;color:inherit;border:1px solid var(--laton);padding:.4rem .9rem;font:inherit;cursor:pointer}
+
+/* div principal + header */
+.principal{background:var(--tinta);color:var(--blanco)}
+.encabezado{max-width:62rem;margin:auto;padding:4.5rem 1.25rem 3.5rem}
+.encabezado h1{font-size:clamp(2.4rem,7vw,4.8rem);font-weight:700;max-width:14ch;margin-bottom:1rem}
+.encabezado p{max-width:44ch;font-size:1.2rem;margin-bottom:1.75rem}
+.logo{width:72px;height:72px;border-radius:50%;border:4px solid var(--laton);margin-bottom:1.25rem;
+  background:repeating-linear-gradient(45deg,var(--borgona) 0 12px,var(--blanco) 12px 24px,var(--azul) 24px 36px)}
+.encabezado .aviso{border-left:4px solid var(--laton);padding-left:.9rem;font-size:1.05rem;margin-bottom:1.75rem}
+.poste{height:16px;background:repeating-linear-gradient(115deg,var(--borgona) 0 22px,var(--blanco) 22px 44px,var(--azul) 44px 66px,var(--blanco) 66px 88px)}
+.boton{display:inline-block;background:var(--laton);color:var(--tinta);font:700 1rem var(--texto);border:0;
+  padding:.85rem 1.6rem;text-decoration:none;cursor:pointer;border-radius:2px}
+.boton:hover{background:#d9a54c}
+
+/* main: 4 divs */
+main section{max-width:62rem;margin:auto;padding:3.5rem 1.25rem}
+h2{font-size:2rem;margin-bottom:1.5rem}
+.rejilla{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+.tarjeta{background:var(--blanco);border:1px solid var(--borde);border-top:5px solid var(--borgona);padding:1.5rem 1.25rem}
+.tarjeta svg{width:46px;height:46px;fill:none;stroke:var(--borgona);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;margin-bottom:.75rem}
+.tarjeta h3{font-size:1.35rem;margin-bottom:.4rem}
+.precio{font-weight:700;margin-top:.75rem;color:var(--borgona)}
+.promo{margin-top:1.5rem;background:var(--blanco);border:1px solid var(--borde);border-left:5px solid var(--laton);padding:1rem 1.25rem}
+.promo p+p{margin-top:.35rem}
+
+/* formulario + mapa */
+.contacto{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+.formulario label{display:block;font-weight:700;margin-top:1rem}
+input,select,textarea{width:100%;font:inherit;padding:.7rem .8rem;border:1.5px solid var(--tinta);background:var(--blanco);border-radius:2px;margin-top:.3rem}
+input[aria-invalid="true"],select[aria-invalid="true"]{border-color:var(--error)}
+fieldset{border:0;padding:0;margin:0;min-width:0}
+legend{font-weight:700;margin-top:1rem;padding:0}
+.opciones label{display:flex;align-items:center;gap:.6rem;font-weight:400;margin-top:.5rem}
+input[type="checkbox"]{width:auto;margin:0;accent-color:var(--laton);transform:scale(1.25)}
+.nota{margin-top:1.25rem;font-size:.95rem;color:var(--gris)}
+.error{color:var(--error);font-size:.95rem;min-height:1.2rem}
+.exito{color:var(--ok);font-weight:700;margin-top:1rem}
+.formulario .boton{margin-top:1.25rem}
+.mapa iframe{width:100%;height:24rem;border:0}
+
+/* footer */
+.pie{background:var(--tinta);color:var(--blanco);text-align:center;padding:2rem 1.25rem;font-size:.95rem;border-top:16px solid var(--borgona)}
+
+/* responsive */
+@media (max-width:900px){.rejilla{grid-template-columns:repeat(2,1fr)}.contacto{grid-template-columns:1fr}}
+@media (max-width:620px){
+  .nav__boton{display:block}
+  .nav__lista{display:none;flex-direction:column;gap:.25rem;width:100%;padding-top:.75rem}
+  .nav__lista.abierto{display:flex}
+  .rejilla{grid-template-columns:1fr}
+  .encabezado{padding-top:3rem}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

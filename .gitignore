@@ -1,0 +1,9 @@
+# Compilados
+backend/out/
+*.class
+
+# Datos de conexión (contienen la clave de MySQL)
+backend/db.properties
+
+# Librerías descargadas
+backend/lib/*.jar
